@@ -1,4 +1,5 @@
-﻿using ERCSelenium.SUT;
+﻿using ERC.Selenium.Tools;
+using ERCSelenium.SUT;
 using ERCSelenium.Tools;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -35,7 +36,7 @@ namespace ERC.Selenium.PageObjects
         [FindsBy(How = How.XPath, Using = "//div[@data-name='Active Items']")]
         public IWebElement ShoppingCartSection { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "add-to-wishlist-button-submit")]
+        [FindsBy(How = How.Id, Using = "add-to-wishlist-button-submit")]
         public IWebElement AddToWishListBtn { get; set; }
 
         [FindsBy(How = How.Id, Using = "WLHUC_result")]
@@ -44,6 +45,12 @@ namespace ERC.Selenium.PageObjects
         [FindsBy(How = How.XPath, Using = "//div[@id='WLHUC_result_success']/div[@class='w-success-msg']")]
         public IWebElement AddToListSuccessMsg { get; set; }
 
+        [FindsBy(How = How.Id, Using = "nav-cart-count")]
+        public IWebElement CartItemCount { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//span[@id='attach-sidesheet-view-cart-button/span/input'")]
+        public IWebElement SideSheetCart { get; set; }
+
 
         #endregion
 
@@ -51,7 +58,12 @@ namespace ERC.Selenium.PageObjects
         public Amazon OpenSite()
         {
             App.Driver.Url = AutoConfig.AmazonUrl;
-            this.WaitForScreen();
+            this.WaitForScreenToLoad(SearchBox);
+            return this;
+        }
+
+        public Amazon LogIn()
+        {
             return this;
         }
 
@@ -71,7 +83,13 @@ namespace ERC.Selenium.PageObjects
         public void DeleteItemFromShoppingCart(int itemNumberOnList)
         {
             IWebElement item = ShoppingCartSection.FindElement(By.XPath($"//div[contains(@class, 'sc-list-item')][{itemNumberOnList}]"));
-            item.FindElement(By.XPath("//input[@value='delete']")).Click();
+            item.FindElement(By.XPath("//span[contains(@class, 'sc-action-delete')]/span/input")).Click();
+        }
+
+        public bool ValidateItemExistsInCart(int itemNumberOnList)
+        {
+            IWebElement item = ShoppingCartSection.FindElement(By.XPath($"//div[contains(@class, 'sc-list-item')][{itemNumberOnList}]"));
+            return item.IsDisplayed();
         }
 
 

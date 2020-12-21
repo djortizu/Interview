@@ -9,6 +9,7 @@
     <AmazonUrl>https://www.amazon.com/</AmazonUrl>
     <AmazonUser></AmazonUser>
     <AmazonPwd></AmazonPwd>
+	<FactorialUrl>http://qainterview.pythonanywhere.com</FactorialUrl>
   </UAT>
   <DEV>
     <AppUrl>http://www.google.com</AppUrl>

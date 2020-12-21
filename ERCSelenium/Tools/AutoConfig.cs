@@ -19,6 +19,8 @@ namespace ERCSelenium.Tools
 
         private static string amazonUrl;
 
+        private static string factorialUrl;
+
         private static bool isUsingRunSettings;
 
         public static void Initialize(TestContext context)
@@ -32,6 +34,7 @@ namespace ERCSelenium.Tools
 
             appUrl = ReadEnvironmentSettings("AppUrl");
             amazonUrl = ReadEnvironmentSettings("AmazonUrl");
+            factorialUrl = ReadEnvironmentSettings("FactorialUrl");
         }
 
         protected static string ReadEnvironmentSettings(string nodes, bool required = true)
@@ -74,6 +77,8 @@ namespace ERCSelenium.Tools
         public static string AppUrl => appUrl;
 
         public static string AmazonUrl => amazonUrl;
+
+        public static string FactorialUrl => factorialUrl;
 
 
 

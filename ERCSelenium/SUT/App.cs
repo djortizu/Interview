@@ -27,5 +27,7 @@ namespace ERCSelenium.SUT
         public static Google Google => GetPage<Google>();
 
         public static Amazon Amazon => GetPage<Amazon>();
+
+        public static FactorialPage FactorialPage => GetPage<FactorialPage>();
     }
 }
