@@ -1,0 +1,28 @@
+﻿<configuration>
+  <appSettings>
+    <TestEnvironment>UAT</TestEnvironment>
+  </appSettings>
+  <UAT>
+    <AppUrl>http://www.google.com</AppUrl>
+    <AppUser>lll</AppUser>
+    <AppPwd></AppPwd>
+    <AmazonUrl>https://www.amazon.com/</AmazonUrl>
+    <AmazonUser></AmazonUser>
+    <AmazonPwd></AmazonPwd>
+  </UAT>
+  <DEV>
+    <AppUrl>http://www.google.com</AppUrl>
+    <AppUser>lll</AppUser>
+    <AppPwd></AppPwd>
+  </DEV>
+  <QA>
+    <AppUrl>http://www.google.com</AppUrl>
+    <AppUser>lll</AppUser>
+    <AppPwd></AppPwd>
+  </QA>
+  <PROD>
+    <AppUrl>http://www.google.com</AppUrl>
+    <AppUser>lll</AppUser>
+    <AppPwd></AppPwd>
+  </PROD>
+</configuration>
